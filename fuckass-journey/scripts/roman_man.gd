@@ -5,6 +5,15 @@ const JUMP_VELOCITY = -400.0
 
 var can_jump = true
 
+# Next two functions handle dying and being brought back to a certain point in level.
+# Will be updated to prompt a menu later
+var starting_position: Vector2
+func _ready() -> void:
+	starting_position = position
+
+func die() -> void:
+	position = starting_position
+	velocity.y = 1000
 
 func _physics_process(delta: float) -> void:
 	
@@ -47,3 +56,7 @@ func jump():
 
 func _on_coyote_timer_timeout() -> void:
 	can_jump = false
+
+
+func _on_touch_spikey_rock(_body: Node2D) -> void:
+	die()
