@@ -1,13 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs75kk6bhsxdp"]
+[gd_scene load_steps=10 format=3 uid="uid://bs75kk6bhsxdp"]
 
 [ext_resource type="Script" uid="uid://b83y383pagql1" path="res://scripts/roman_man.gd" id="1_ia1lp"]
 [ext_resource type="Texture2D" uid="uid://cr0hukcg63peg" path="res://assets/spritesheet.png" id="2_sasra"]
+[ext_resource type="Script" uid="uid://dipko4n5uaxeg" path="res://spikey_rock_(base).gd" id="3_coq8p"]
+[ext_resource type="Texture2D" uid="uid://liwkfknh2kob" path="res://icon.svg" id="4_2nij2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coq8p"]
 size = Vector2(12, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nij2"]
 size = Vector2(94, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia1lp"]
+size = Vector2(63.33333, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sasra"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cbxl"]
+size = Vector2(128, 128)
 
 [node name="TestScene" type="Node2D"]
 
@@ -30,88 +41,139 @@ shape = SubResource("RectangleShape2D_coq8p")
 zoom = Vector2(2, 2)
 
 [node name="CoyoteTimer" type="Timer" parent="RomanMan"]
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
-[node name="MediumHorizonalPlatform" type="StaticBody2D" parent="."]
-position = Vector2(274, 510.00003)
+[node name="LargeHorizonalPlatform (BASE)" type="StaticBody2D" parent="."]
+position = Vector2(274, 505)
 scale = Vector2(1.5034523, 1.502)
 
-[node name="Sprite2D" type="Sprite2D" parent="MediumHorizonalPlatform"]
+[node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
 texture_filter = 1
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="Sprite2D2" type="Sprite2D" parent="MediumHorizonalPlatform"]
+[node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
 texture_filter = 1
 position = Vector2(-31, 0)
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="Sprite2D3" type="Sprite2D" parent="MediumHorizonalPlatform"]
+[node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
 texture_filter = 1
 position = Vector2(31, 0)
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumHorizonalPlatform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LargeHorizonalPlatform (BASE)"]
 shape = SubResource("RectangleShape2D_2nij2")
 
-[node name="MediumHorizonalPlatform2" type="StaticBody2D" parent="."]
+[node name="LargeHorizonalPlatform" type="StaticBody2D" parent="."]
 position = Vector2(507.99997, 457)
 scale = Vector2(1.5, 1.497)
 
-[node name="Sprite2D" type="Sprite2D" parent="MediumHorizonalPlatform2"]
+[node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform"]
 texture_filter = 1
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="Sprite2D2" type="Sprite2D" parent="MediumHorizonalPlatform2"]
+[node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform"]
 texture_filter = 1
 position = Vector2(-31, 0)
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="Sprite2D3" type="Sprite2D" parent="MediumHorizonalPlatform2"]
+[node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform"]
 texture_filter = 1
 position = Vector2(31, 0)
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumHorizonalPlatform2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LargeHorizonalPlatform"]
 shape = SubResource("RectangleShape2D_2nij2")
 
-[node name="MediumHorizonalPlatform3" type="StaticBody2D" parent="."]
+[node name="LargeHorizonalPlatform1" type="StaticBody2D" parent="."]
 position = Vector2(705, 384)
 scale = Vector2(1.5, 1.497)
 
-[node name="Sprite2D" type="Sprite2D" parent="MediumHorizonalPlatform3"]
+[node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform1"]
 texture_filter = 1
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="Sprite2D2" type="Sprite2D" parent="MediumHorizonalPlatform3"]
+[node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform1"]
 texture_filter = 1
 position = Vector2(-31, 0)
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="Sprite2D3" type="Sprite2D" parent="MediumHorizonalPlatform3"]
+[node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform1"]
 texture_filter = 1
 position = Vector2(31, 0)
 texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumHorizonalPlatform3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LargeHorizonalPlatform1"]
 shape = SubResource("RectangleShape2D_2nij2")
 
+[node name="MediumHorizontalPlatform (BASE)" type="StaticBody2D" parent="."]
+position = Vector2(46, 458)
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="MediumHorizontalPlatform (BASE)"]
+texture_filter = 1
+position = Vector2(34.667, 1)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 32.13883, 31.927122)
+
+[node name="Sprite2D" type="Sprite2D" parent="MediumHorizontalPlatform (BASE)"]
+texture_filter = 1
+position = Vector2(3, 1)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 32.13883, 31.927122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumHorizontalPlatform (BASE)"]
+position = Vector2(19, 1.333313)
+shape = SubResource("RectangleShape2D_ia1lp")
+
+[node name="SmallHorizontalPlatform (BASE)" type="StaticBody2D" parent="."]
+position = Vector2(-95, 403.00003)
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="SmallHorizontalPlatform (BASE)"]
+texture_filter = 1
+position = Vector2(3, 1)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 32.13883, 31.927122)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallHorizontalPlatform (BASE)"]
+position = Vector2(3.999995, 1.3333435)
+shape = SubResource("RectangleShape2D_sasra")
+
+[node name="SpikeyRock (BASE)" type="Area2D" parent="."]
+position = Vector2(48, 420)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("3_coq8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpikeyRock (BASE)"]
+position = Vector2(3, 0)
+texture = ExtResource("4_2nij2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeyRock (BASE)"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_7cbxl")
+
 [connection signal="timeout" from="RomanMan/CoyoteTimer" to="RomanMan" method="_on_coyote_timer_timeout"]
+[connection signal="body_entered" from="SpikeyRock (BASE)" to="RomanMan" method="_on_touch_spikey_rock"]
