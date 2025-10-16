@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs75kk6bhsxdp"]
+
+[ext_resource type="Script" uid="uid://b83y383pagql1" path="res://scripts/roman_man.gd" id="1_ia1lp"]
+[ext_resource type="Texture2D" uid="uid://cr0hukcg63peg" path="res://assets/spritesheet.png" id="2_sasra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coq8p"]
+size = Vector2(12, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nij2"]
+size = Vector2(94, 33)
+
+[node name="TestScene" type="Node2D"]
+
+[node name="RomanMan" type="CharacterBody2D" parent="."]
+position = Vector2(269, 439)
+scale = Vector2(2, 2)
+script = ExtResource("1_ia1lp")
+
+[node name="Sprite2D" type="Sprite2D" parent="RomanMan"]
+texture_filter = 1
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(34, 37.5, 30.009232, 27.422981)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RomanMan"]
+position = Vector2(1, -1.5)
+shape = SubResource("RectangleShape2D_coq8p")
+
+[node name="Camera2D" type="Camera2D" parent="RomanMan"]
+zoom = Vector2(2, 2)
+
+[node name="CoyoteTimer" type="Timer" parent="RomanMan"]
+wait_time = 0.3
+one_shot = true
+
+[node name="MediumHorizonalPlatform" type="StaticBody2D" parent="."]
+position = Vector2(274, 510.00003)
+scale = Vector2(1.5034523, 1.502)
+
+[node name="Sprite2D" type="Sprite2D" parent="MediumHorizonalPlatform"]
+texture_filter = 1
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="Sprite2D2" type="Sprite2D" parent="MediumHorizonalPlatform"]
+texture_filter = 1
+position = Vector2(-31, 0)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="Sprite2D3" type="Sprite2D" parent="MediumHorizonalPlatform"]
+texture_filter = 1
+position = Vector2(31, 0)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumHorizonalPlatform"]
+shape = SubResource("RectangleShape2D_2nij2")
+
+[node name="MediumHorizonalPlatform2" type="StaticBody2D" parent="."]
+position = Vector2(507.99997, 457)
+scale = Vector2(1.5, 1.497)
+
+[node name="Sprite2D" type="Sprite2D" parent="MediumHorizonalPlatform2"]
+texture_filter = 1
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="Sprite2D2" type="Sprite2D" parent="MediumHorizonalPlatform2"]
+texture_filter = 1
+position = Vector2(-31, 0)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="Sprite2D3" type="Sprite2D" parent="MediumHorizonalPlatform2"]
+texture_filter = 1
+position = Vector2(31, 0)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumHorizonalPlatform2"]
+shape = SubResource("RectangleShape2D_2nij2")
+
+[node name="MediumHorizonalPlatform3" type="StaticBody2D" parent="."]
+position = Vector2(705, 384)
+scale = Vector2(1.5, 1.497)
+
+[node name="Sprite2D" type="Sprite2D" parent="MediumHorizonalPlatform3"]
+texture_filter = 1
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="Sprite2D2" type="Sprite2D" parent="MediumHorizonalPlatform3"]
+texture_filter = 1
+position = Vector2(-31, 0)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="Sprite2D3" type="Sprite2D" parent="MediumHorizonalPlatform3"]
+texture_filter = 1
+position = Vector2(31, 0)
+texture = ExtResource("2_sasra")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.748, 32.771)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumHorizonalPlatform3"]
+shape = SubResource("RectangleShape2D_2nij2")
+
+[connection signal="timeout" from="RomanMan/CoyoteTimer" to="RomanMan" method="_on_coyote_timer_timeout"]
