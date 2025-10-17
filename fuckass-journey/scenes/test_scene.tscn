@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs75kk6bhsxdp"]
+[gd_scene load_steps=9 format=3 uid="uid://bs75kk6bhsxdp"]
 
 [ext_resource type="Script" uid="uid://b83y383pagql1" path="res://scripts/roman_man.gd" id="1_ia1lp"]
-[ext_resource type="Texture2D" uid="uid://cr0hukcg63peg" path="res://assets/spritesheet.png" id="2_sasra"]
 [ext_resource type="Script" uid="uid://dipko4n5uaxeg" path="res://spikey_rock_(base).gd" id="3_coq8p"]
 [ext_resource type="Texture2D" uid="uid://liwkfknh2kob" path="res://icon.svg" id="4_2nij2"]
 
@@ -29,7 +28,6 @@ script = ExtResource("1_ia1lp")
 
 [node name="Sprite2D" type="Sprite2D" parent="RomanMan"]
 texture_filter = 1
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(34, 37.5, 30.009232, 27.422981)
 
@@ -50,21 +48,18 @@ scale = Vector2(1.5034523, 1.502)
 
 [node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
 texture_filter = 1
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
 [node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
 texture_filter = 1
 position = Vector2(-31, 0)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
 [node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
 texture_filter = 1
 position = Vector2(31, 0)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
@@ -77,21 +72,18 @@ scale = Vector2(1.5, 1.497)
 
 [node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform"]
 texture_filter = 1
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
 [node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform"]
 texture_filter = 1
 position = Vector2(-31, 0)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
 [node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform"]
 texture_filter = 1
 position = Vector2(31, 0)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
@@ -104,21 +96,18 @@ scale = Vector2(1.5, 1.497)
 
 [node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform1"]
 texture_filter = 1
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
 [node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform1"]
 texture_filter = 1
 position = Vector2(-31, 0)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
 [node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform1"]
 texture_filter = 1
 position = Vector2(31, 0)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 31.748, 32.771)
 
@@ -132,14 +121,12 @@ scale = Vector2(1.5, 1.5)
 [node name="Sprite2D2" type="Sprite2D" parent="MediumHorizontalPlatform (BASE)"]
 texture_filter = 1
 position = Vector2(34.667, 1)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 32.13883, 31.927122)
 
 [node name="Sprite2D" type="Sprite2D" parent="MediumHorizontalPlatform (BASE)"]
 texture_filter = 1
 position = Vector2(3, 1)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 32.13883, 31.927122)
 
@@ -154,7 +141,6 @@ scale = Vector2(1.5, 1.5)
 [node name="Sprite2D" type="Sprite2D" parent="SmallHorizontalPlatform (BASE)"]
 texture_filter = 1
 position = Vector2(3, 1)
-texture = ExtResource("2_sasra")
 region_enabled = true
 region_rect = Rect2(0, 0, 32.13883, 31.927122)
 
