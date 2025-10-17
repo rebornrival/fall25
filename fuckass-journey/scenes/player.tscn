@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqhqosws3qsbl"]
+[gd_scene load_steps=12 format=3 uid="uid://dqhqosws3qsbl"]
 
 [ext_resource type="Script" uid="uid://b83y383pagql1" path="res://scripts/roman_man.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="2_i3pqv"]
@@ -55,6 +55,10 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqtel"]
 height = 27.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 7.5
+height = 25.0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="RomanMan" type="CharacterBody2D" parent="."]
@@ -66,7 +70,7 @@ script = ExtResource("1_onrkg")
 texture_filter = 1
 texture = ExtResource("2_i3pqv")
 region_enabled = true
-region_rect = Rect2(34, 37.5, 30.009232, 27.422981)
+region_rect = Rect2(34, 32, 22, 32.92298)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RomanMan"]
 visible = false
@@ -82,14 +86,24 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RomanMan"]
-position = Vector2(-3.5, -3)
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="RomanMan"]
+position = Vector2(0.5, 1)
 zoom = Vector2(2, 2)
 
 [node name="CoyoteTimer" type="Timer" parent="RomanMan"]
 wait_time = 0.2
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="RomanMan"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RomanMan/Area2D"]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_g2els")
+debug_color = Color(0.89827186, 0.21488908, 0.58140063, 0.41960785)
+
 [connection signal="timeout" from="RomanMan/CoyoteTimer" to="RomanMan" method="_on_coyote_timer_timeout"]
+[connection signal="body_entered" from="RomanMan/Area2D" to="RomanMan" method="_on_area_2d_body_entered"]
