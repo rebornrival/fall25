@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 const SPEED = 250.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
 
 var can_jump = true
+
+var AnimPlayer
 
 # Next two functions handle dying and being brought back to a certain point in level.
 # Will be updated to prompt a menu later
@@ -31,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		get_node("Sprite2D").flip_h = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_up") and can_jump:
+	if Input.is_action_just_pressed("jump") and can_jump:
 		jump()
 	
 	# As soon as we leave a platform, begin Coyote time
@@ -40,7 +42,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -60,3 +62,11 @@ func _on_coyote_timer_timeout() -> void:
 
 func _on_touch_spikey_rock(_body: Node2D) -> void:
 	die()
+
+
+# handles player animation
+func anim_left():
+	if Input.is_action_pressed("left"):
+		$AnimationPlayer.play("walk_left")
+	if Input.is_action_just_released("left"):
+		$AnimationPlayer.stop(false)

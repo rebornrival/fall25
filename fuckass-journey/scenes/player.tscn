@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqhqosws3qsbl"]
+
+[ext_resource type="Script" uid="uid://b83y383pagql1" path="res://scripts/roman_man.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="2_i3pqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
+animations = [{
+"frames": [{
+"duration": 1.91,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.91,
+"texture": SubResource("AtlasTexture_qhqgy")
+}],
+"loop": true,
+"name": &"walk left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.91,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.91,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"walk right",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_g2els"]
+resource_name = "walk_left"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhqgy"]
+_data = {
+&"walk_left": SubResource("Animation_g2els")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqtel"]
+height = 27.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RomanMan" type="CharacterBody2D" parent="."]
+position = Vector2(269, 439)
+scale = Vector2(2, 2)
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="RomanMan"]
+texture_filter = 1
+texture = ExtResource("2_i3pqv")
+region_enabled = true
+region_rect = Rect2(34, 37.5, 30.009232, 27.422981)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RomanMan"]
+visible = false
+position = Vector2(-1.7499993, -2.7499998)
+scale = Vector2(0.95312506, 0.984375)
+sprite_frames = SubResource("SpriteFrames_g2els")
+animation = &"walk right"
+frame_progress = 0.34076583
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RomanMan/AnimatedSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_qhqgy")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RomanMan"]
+position = Vector2(-3.5, -3)
+shape = SubResource("CapsuleShape2D_hqtel")
+
+[node name="Camera2D" type="Camera2D" parent="RomanMan"]
+zoom = Vector2(2, 2)
+
+[node name="CoyoteTimer" type="Timer" parent="RomanMan"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="RomanMan/CoyoteTimer" to="RomanMan" method="_on_coyote_timer_timeout"]
