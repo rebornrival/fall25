@@ -70,3 +70,7 @@ func anim_left():
 		$AnimationPlayer.play("walk_left")
 	if Input.is_action_just_released("left"):
 		$AnimationPlayer.stop(false)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	get_tree().reload_current_scene()
