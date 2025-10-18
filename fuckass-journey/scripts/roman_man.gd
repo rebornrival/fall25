@@ -7,13 +7,7 @@ var can_jump = true
 
 var AnimPlayer
 
-# Next two functions handle dying and being brought back to a certain point in level.
-# Will be updated to prompt a menu later
-var starting_position: Vector2
-
-func _ready() -> void:
-	pass
-
+# Brings Player to game over screen once killed
 func die() -> void:
 	get_tree().reload_current_scene()
 
@@ -41,37 +35,29 @@ func _physics_process(delta: float) -> void:
 		$CoyoteTimer.start()
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-
-
 	move_and_slide()
 
 func jump():
 	velocity.y = JUMP_VELOCITY
 	can_jump = false
 
+# Once coyote time runs out, player can no longer jump
 func _on_coyote_timer_timeout() -> void:
 	can_jump = false
 
-
-func _on_touch_spikey_rock(_body: Node2D) -> void:
-	pass
-
-
-# handles player animation
+# Handles player animation
 func anim_left():
 	if Input.is_action_pressed("left"):
 		$AnimationPlayer.play("walk_left")
 	if Input.is_action_just_released("left"):
 		$AnimationPlayer.stop(false)
 
-# spikey rock
-func _on_area_2d_body_entered(body: Node2D) -> void:
+# If the player collides with a damaging terrain object, kill them
+func _on_death_detector_body_entered(_body: Node2D) -> void:
 	die()
-	
