@@ -78,7 +78,6 @@ position = Vector2(-1.7499993, -2.7499998)
 scale = Vector2(0.95312506, 0.984375)
 sprite_frames = SubResource("SpriteFrames_g2els")
 animation = &"walk right"
-frame_progress = 0.34076583
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RomanMan/AnimatedSprite2D"]
 libraries = {
