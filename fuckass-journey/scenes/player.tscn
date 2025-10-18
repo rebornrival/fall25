@@ -62,8 +62,9 @@ height = 25.0
 
 [node name="Node2D" type="Node2D"]
 
-[node name="RomanMan" type="CharacterBody2D" parent="."]
+[node name="RomanMan" type="CharacterBody2D" parent="." groups=["Player"]]
 scale = Vector2(2, 2)
+collision_layer = 3
 script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="RomanMan"]
@@ -73,8 +74,10 @@ region_enabled = true
 region_rect = Rect2(34, 36, 22, 25)
 
 [node name="Background" type="Sprite2D" parent="RomanMan/Sprite2D"]
+modulate = Color(0.7792914, 0.7792914, 0.7792913, 1)
 show_behind_parent = true
 texture_filter = 1
+texture_repeat = 2
 scale = Vector2(6, 3.326)
 texture = ExtResource("3_qhqgy")
 
@@ -104,13 +107,13 @@ zoom = Vector2(2, 2)
 wait_time = 0.2
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="RomanMan"]
+[node name="DeathDetector" type="Area2D" parent="RomanMan"]
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RomanMan/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RomanMan/DeathDetector"]
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_g2els")
 debug_color = Color(0.89827186, 0.21488908, 0.58140063, 0.41960785)
 
 [connection signal="timeout" from="RomanMan/CoyoteTimer" to="RomanMan" method="_on_coyote_timer_timeout"]
-[connection signal="body_entered" from="RomanMan/Area2D" to="RomanMan" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="RomanMan/DeathDetector" to="RomanMan" method="_on_area_2d_body_entered"]

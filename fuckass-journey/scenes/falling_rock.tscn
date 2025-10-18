@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp43tsl2jfiu5"]
+
+[ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="1_7fblv"]
+[ext_resource type="Script" uid="uid://cva4b31bwbtfl" path="res://scenes/falling_rock.gd" id="1_e8xk3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8xk3"]
+size = Vector2(71, 175)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shrht"]
+radius = 11.0
+
+[node name="FallingRock" type="Node2D"]
+script = ExtResource("1_e8xk3")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0.5, 87.5)
+shape = SubResource("RectangleShape2D_e8xk3")
+
+[node name="Killbox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
+position = Vector2(1, -3)
+shape = SubResource("CircleShape2D_shrht")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7fblv")
+region_enabled = true
+region_rect = Rect2(31.843727, 62.2894, 32.77118, 33.54226)
+
+[node name="SelfDestructTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_entered" from="Killbox" to="." method="_on_killbox_body_entered"]
+[connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]
