@@ -71,6 +71,7 @@ func anim_left():
 	if Input.is_action_just_released("left"):
 		$AnimationPlayer.stop(false)
 
-
+# spikey rock
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	get_tree().reload_current_scene()
+	

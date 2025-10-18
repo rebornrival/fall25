@@ -70,7 +70,7 @@ script = ExtResource("1_onrkg")
 texture_filter = 1
 texture = ExtResource("2_i3pqv")
 region_enabled = true
-region_rect = Rect2(34, 32, 22, 32.92298)
+region_rect = Rect2(34, 36, 22, 25)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RomanMan"]
 visible = false
