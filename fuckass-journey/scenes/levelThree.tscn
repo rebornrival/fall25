@@ -194,14 +194,14 @@ sources/0 = SubResource("TileSetAtlasSource_myhti")
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_l71va")]
-position = Vector2(-128, -177)
+position = Vector2(146, 265)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="player"]
 layer = -2
 follow_viewport_scale = 0.762
 
 [node name="Sprite2D" type="Sprite2D" parent="player/CanvasLayer"]
-position = Vector2(797.00006, 344)
+position = Vector2(145.00006, 261.99994)
 scale = Vector2(9.461111, 4.6166663)
 texture = ExtResource("2_yngkb")
 
