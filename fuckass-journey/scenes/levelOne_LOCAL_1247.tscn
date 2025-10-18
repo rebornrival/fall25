@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://6jjystu4l4li"]
+[gd_scene load_steps=11 format=4 uid="uid://6jjystu4l4li"]
 
 [ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="1_k0q4i"]
 [ext_resource type="PackedScene" uid="uid://dqhqosws3qsbl" path="res://scenes/player.tscn" id="1_v7ipo"]
+[ext_resource type="Texture2D" uid="uid://b5nolrqjmn5mv" path="res://assets/background.png" id="2_myhti"]
 [ext_resource type="Texture2D" uid="uid://cgmnfv86si4um" path="res://assets/spritesheetReal.png" id="4_dpxsi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myhti"]
@@ -190,8 +191,13 @@ sources/0 = SubResource("TileSetAtlasSource_myhti")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(137.5, 34)
+scale = Vector2(2.5277777, 1.3777778)
+texture = ExtResource("2_myhti")
+
 [node name="player" parent="." instance=ExtResource("1_v7ipo")]
-position = Vector2(-27, 259)
+position = Vector2(-224, -174)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1

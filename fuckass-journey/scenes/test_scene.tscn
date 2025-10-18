@@ -1,165 +1,90 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs75kk6bhsxdp"]
+[gd_scene load_steps=6 format=4 uid="uid://bs75kk6bhsxdp"]
 
-[ext_resource type="Script" uid="uid://b83y383pagql1" path="res://scripts/roman_man.gd" id="1_ia1lp"]
-[ext_resource type="Script" uid="uid://dipko4n5uaxeg" path="res://spikey_rock_(base).gd" id="3_coq8p"]
-[ext_resource type="Texture2D" uid="uid://liwkfknh2kob" path="res://icon.svg" id="4_2nij2"]
+[ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="1_g7g4h"]
+[ext_resource type="PackedScene" uid="uid://dqhqosws3qsbl" path="res://scenes/player.tscn" id="1_j8ivh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_coq8p"]
-size = Vector2(12, 23)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8ivh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nij2"]
-size = Vector2(94, 33)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nd71p"]
+texture = ExtResource("1_g7g4h")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia1lp"]
-size = Vector2(63.33333, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sasra"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cbxl"]
-size = Vector2(128, 128)
+[sub_resource type="TileSet" id="TileSet_nd71p"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_j8ivh")
+physics_layer_1/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_nd71p")
 
 [node name="TestScene" type="Node2D"]
 
-[node name="RomanMan" type="CharacterBody2D" parent="."]
-position = Vector2(269, 439)
-scale = Vector2(2, 2)
-script = ExtResource("1_ia1lp")
-
-[node name="Sprite2D" type="Sprite2D" parent="RomanMan"]
+[node name="Player" parent="." instance=ExtResource("1_j8ivh")]
 texture_filter = 1
-region_enabled = true
-region_rect = Rect2(34, 37.5, 30.009232, 27.422981)
+position = Vector2(-263, -510)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RomanMan"]
-position = Vector2(1, -1.5)
-shape = SubResource("RectangleShape2D_coq8p")
-
-[node name="Camera2D" type="Camera2D" parent="RomanMan"]
-zoom = Vector2(2, 2)
-
-[node name="CoyoteTimer" type="Timer" parent="RomanMan"]
-wait_time = 0.2
-one_shot = true
-
-[node name="LargeHorizonalPlatform (BASE)" type="StaticBody2D" parent="."]
-position = Vector2(274, 505)
-scale = Vector2(1.5034523, 1.502)
-
-[node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
-texture_filter = 1
-position = Vector2(-31, 0)
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform (BASE)"]
-texture_filter = 1
-position = Vector2(31, 0)
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LargeHorizonalPlatform (BASE)"]
-shape = SubResource("RectangleShape2D_2nij2")
-
-[node name="LargeHorizonalPlatform" type="StaticBody2D" parent="."]
-position = Vector2(507.99997, 457)
-scale = Vector2(1.5, 1.497)
-
-[node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform"]
-texture_filter = 1
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform"]
-texture_filter = 1
-position = Vector2(-31, 0)
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform"]
-texture_filter = 1
-position = Vector2(31, 0)
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LargeHorizonalPlatform"]
-shape = SubResource("RectangleShape2D_2nij2")
-
-[node name="LargeHorizonalPlatform1" type="StaticBody2D" parent="."]
-position = Vector2(705, 384)
-scale = Vector2(1.5, 1.497)
-
-[node name="Sprite2D" type="Sprite2D" parent="LargeHorizonalPlatform1"]
-texture_filter = 1
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="Sprite2D2" type="Sprite2D" parent="LargeHorizonalPlatform1"]
-texture_filter = 1
-position = Vector2(-31, 0)
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="Sprite2D3" type="Sprite2D" parent="LargeHorizonalPlatform1"]
-texture_filter = 1
-position = Vector2(31, 0)
-region_enabled = true
-region_rect = Rect2(0, 0, 31.748, 32.771)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LargeHorizonalPlatform1"]
-shape = SubResource("RectangleShape2D_2nij2")
-
-[node name="MediumHorizontalPlatform (BASE)" type="StaticBody2D" parent="."]
-position = Vector2(46, 458)
-scale = Vector2(1.5, 1.5)
-
-[node name="Sprite2D2" type="Sprite2D" parent="MediumHorizontalPlatform (BASE)"]
-texture_filter = 1
-position = Vector2(34.667, 1)
-region_enabled = true
-region_rect = Rect2(0, 0, 32.13883, 31.927122)
-
-[node name="Sprite2D" type="Sprite2D" parent="MediumHorizontalPlatform (BASE)"]
-texture_filter = 1
-position = Vector2(3, 1)
-region_enabled = true
-region_rect = Rect2(0, 0, 32.13883, 31.927122)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MediumHorizontalPlatform (BASE)"]
-position = Vector2(19, 1.333313)
-shape = SubResource("RectangleShape2D_ia1lp")
-
-[node name="SmallHorizontalPlatform (BASE)" type="StaticBody2D" parent="."]
-position = Vector2(-95, 403.00003)
-scale = Vector2(1.5, 1.5)
-
-[node name="Sprite2D" type="Sprite2D" parent="SmallHorizontalPlatform (BASE)"]
-texture_filter = 1
-position = Vector2(3, 1)
-region_enabled = true
-region_rect = Rect2(0, 0, 32.13883, 31.927122)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallHorizontalPlatform (BASE)"]
-position = Vector2(3.999995, 1.3333435)
-shape = SubResource("RectangleShape2D_sasra")
-
-[node name="SpikeyRock (BASE)" type="Area2D" parent="."]
-position = Vector2(48, 420)
-scale = Vector2(0.25, 0.25)
-script = ExtResource("3_coq8p")
-
-[node name="Sprite2D" type="Sprite2D" parent="SpikeyRock (BASE)"]
-position = Vector2(3, 0)
-texture = ExtResource("4_2nij2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeyRock (BASE)"]
-position = Vector2(3, 0)
-shape = SubResource("RectangleShape2D_7cbxl")
-
-[connection signal="timeout" from="RomanMan/CoyoteTimer" to="RomanMan" method="_on_coyote_timer_timeout"]
-[connection signal="body_entered" from="SpikeyRock (BASE)" to="RomanMan" method="_on_touch_spikey_rock"]
+tile_map_data = PackedByteArray("AAD/////AQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAACAP//AQAAAAAAAAACAP7/AQAAAAAAAAADAP7/AQAAAAAAAAADAP//AQAAAAAAAAAEAP7/AQAAAAAAAAAEAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAFAP7/AQAAAAAAAAAGAP7/AQAAAAAAAAAGAP3/AQAAAAAAAAAGAPz/AQAAAAAAAAAHAPz/AQAAAAAAAAAHAP3/AQAAAAAAAAAIAPz/AQAAAAAAAAAIAP3/AQAAAAAAAAAJAPz/AQAAAAAAAAD+////AQAAAAAAAAD+/wEAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_nd71p")

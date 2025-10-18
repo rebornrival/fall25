@@ -15,7 +15,6 @@ func _ready() -> void:
 
 func die() -> void:
 	position = starting_position
-	velocity.y = 1000
 
 func _physics_process(delta: float) -> void:
 	
@@ -61,7 +60,7 @@ func _on_coyote_timer_timeout() -> void:
 
 
 func _on_touch_spikey_rock(_body: Node2D) -> void:
-	die()
+	pass
 
 
 # handles player animation
