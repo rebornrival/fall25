@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=4 uid="uid://bl4s5kfwn8tyk"]
 
-[ext_resource type="PackedScene" uid="uid://dqhqosws3qsbl" path="res://scenes/player.tscn" id="1_l2mgs"]
+[ext_resource type="PackedScene" uid="uid://dqhqosws3qsbl" path="res://scenes/objects/player.tscn" id="1_l2mgs"]
 [ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="3_xapwp"]
 [ext_resource type="Texture2D" uid="uid://cgmnfv86si4um" path="res://assets/spritesheetReal.png" id="4_04r6d"]
-[ext_resource type="PackedScene" uid="uid://c4c46xgtldjhv" path="res://scenes/falling_pllatform.tscn" id="5_4b73c"]
+[ext_resource type="PackedScene" uid="uid://c4c46xgtldjhv" path="res://scenes/objects/falling_pllatform.tscn" id="5_4b73c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myhti"]
 

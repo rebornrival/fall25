@@ -1,0 +1,123 @@
+[gd_scene load_steps=9 format=3 uid="uid://5ef72j6mv176"]
+
+[ext_resource type="Script" uid="uid://vcnigi6g6hhf" path="res://scripts/main_menu.gd" id="1_cv8r1"]
+[ext_resource type="Texture2D" uid="uid://ddy8af4pj86cd" path="res://assets/fuckassJourneyMainMenuBackground.png" id="2_2brji"]
+[ext_resource type="FontFile" uid="uid://c5e1uwtbpdkhp" path="res://fonts/MedievalSharp-Regular.ttf" id="3_l2vun"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48ign"]
+texture = ExtResource("2_2brji")
+modulate_color = Color(0.8819366, 0.8819366, 0.88193643, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7uy4"]
+bg_color = Color(0.118245445, 0.2416088, 0.36816975, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d1i7"]
+bg_color = Color(0.028556215, 0.088628374, 0.1496, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48ign"]
+bg_color = Color(0.08009515, 0.1792598, 0.27833605, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3d1i7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cv8r1")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_48ign")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 120
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_l2vun")
+theme_override_font_sizes/font_size = 150
+text = "A Terrible Journey"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_l2vun")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_c7uy4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3d1i7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_48ign")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3d1i7")
+text = "Start Journey"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_l2vun")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_c7uy4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3d1i7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_48ign")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3d1i7")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
