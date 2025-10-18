@@ -10,11 +10,12 @@ var AnimPlayer
 # Next two functions handle dying and being brought back to a certain point in level.
 # Will be updated to prompt a menu later
 var starting_position: Vector2
+
 func _ready() -> void:
-	starting_position = position
+	pass
 
 func die() -> void:
-	position = starting_position
+	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
 	
@@ -72,5 +73,5 @@ func anim_left():
 
 # spikey rock
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
+	die()
 	
