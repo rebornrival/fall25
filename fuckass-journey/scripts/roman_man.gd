@@ -9,7 +9,9 @@ var AnimPlayer
 
 # Brings Player to game over screen once killed
 func die() -> void:
-	get_tree().reload_current_scene()
+	# Uses call_deferred because Godot really doesn't like changing scenes while actively calculating physics
+	# Waits until Godot is "idle" to change scene.
+	get_tree().call_deferred("change_scene_to_file", ("res://scenes/menus/gameOver.tscn"))
 
 func _physics_process(delta: float) -> void:
 	
