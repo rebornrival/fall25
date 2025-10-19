@@ -165,6 +165,7 @@ script = ExtResource("5_8u72y")
 
 [node name="endFlag" type="Area2D" parent="."]
 script = ExtResource("6_wmc2i")
+next_scene = "uid://bl4s5kfwn8tyk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="endFlag"]
 position = Vector2(202, -917)
