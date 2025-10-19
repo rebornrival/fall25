@@ -7,17 +7,13 @@ var can_jump = true
 
 var AnimPlayer
 
-# Next two functions handle dying and being brought back to a certain point in level.
-# Will be updated to prompt a menu later
-var starting_position: Vector2
-func _ready() -> void:
-	starting_position = position
-
+# Brings Player to game over screen once killed
 func die() -> void:
-	position = starting_position
+	# Uses call_deferred because Godot really doesn't like changing scenes while actively calculating physics
+	# Waits until Godot is "idle" to change scene.
+	get_tree().call_deferred("change_scene_to_file", ("res://scenes/menus/gameOver.tscn"))
 
 func _physics_process(delta: float) -> void:
-	
 	# If we are on the floor, we can jump
 	if can_jump == false and is_on_floor():
 		can_jump = true
@@ -40,37 +36,29 @@ func _physics_process(delta: float) -> void:
 		$CoyoteTimer.start()
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-
-
 	move_and_slide()
 
 func jump():
 	velocity.y = JUMP_VELOCITY
 	can_jump = false
 
+# Once coyote time runs out, player can no longer jump
 func _on_coyote_timer_timeout() -> void:
 	can_jump = false
 
-
-func _on_touch_spikey_rock(_body: Node2D) -> void:
-	pass
-
-
-# handles player animation
+# Handles player animation
 func anim_left():
 	if Input.is_action_pressed("left"):
 		$AnimationPlayer.play("walk_left")
 	if Input.is_action_just_released("left"):
 		$AnimationPlayer.stop(false)
 
-# spikey rock
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
-	
+# If the player collides with a damaging terrain object, kill them
+func _on_death_detector_body_entered(_body: Node2D) -> void:
+	die()

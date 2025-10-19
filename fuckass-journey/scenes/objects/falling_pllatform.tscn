@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4c46xgtldjhv"]
 
 [ext_resource type="Texture2D" uid="uid://cgmnfv86si4um" path="res://assets/spritesheetReal.png" id="1_x84l1"]
-[ext_resource type="Script" uid="uid://cmsf4m241jmy0" path="res://scenes/falling_pllatform.gd" id="2_onlfq"]
+[ext_resource type="Script" uid="uid://cmsf4m241jmy0" path="res://scripts/falling_pllatform.gd" id="2_onlfq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x84l1"]
 size = Vector2(32, 32)
