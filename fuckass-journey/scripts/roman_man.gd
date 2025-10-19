@@ -14,7 +14,6 @@ func die() -> void:
 	get_tree().call_deferred("change_scene_to_file", ("res://scenes/menus/gameOver.tscn"))
 
 func _physics_process(delta: float) -> void:
-	
 	# If we are on the floor, we can jump
 	if can_jump == false and is_on_floor():
 		can_jump = true
