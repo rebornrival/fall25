@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cvc8jtjrdjsf" path="res://scripts/mapBoundaryHandler.gd" id="5_2hcd8"]
 [ext_resource type="PackedScene" uid="uid://c4c46xgtldjhv" path="res://scenes/objects/falling_pllatform.tscn" id="5_4b73c"]
 [ext_resource type="Texture2D" uid="uid://liwkfknh2kob" path="res://icon.svg" id="5_dc4tp"]
+[ext_resource type="Script" uid="uid://b7nxmq6lwemk6" path="res://scenes/levels/end_flag_2.gd" id="7_7jo78"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myhti"]
 
@@ -140,15 +141,6 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_tlt14")
 sources/0 = SubResource("TileSetAtlasSource_2hcd8")
 
-[sub_resource type="GDScript" id="GDScript_2hcd8"]
-script/source = "extends Area2D
-
-@export_file(\"*.tscn\") var next_scene
-
-func _on_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file(next_scene)
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hcd8"]
 size = Vector2(34, 80)
 
@@ -219,12 +211,11 @@ position = Vector2(176, 304)
 
 [node name="endFlag2" type="Area2D" parent="."]
 position = Vector2(411, -1287)
-script = SubResource("GDScript_2hcd8")
-next_scene = "uid://hky6ucuwg4fc"
+script = ExtResource("7_7jo78")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="endFlag2"]
 position = Vector2(100, 0)
 shape = SubResource("RectangleShape2D_2hcd8")
 
 [connection signal="ready" from="MapBoundaries" to="MapBoundaries" method="_on_levelTwo_ready"]
-[connection signal="body_entered" from="endFlag2" to="endFlag2" method="_on_body_entered"]
+[connection signal="body_entered" from="endFlag2" to="endFlag2" method="_on_end_flag_2_entered"]
