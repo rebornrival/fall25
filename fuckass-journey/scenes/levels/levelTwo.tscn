@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://bl4s5kfwn8tyk"]
+[gd_scene load_steps=16 format=4 uid="uid://bl4s5kfwn8tyk"]
 
 [ext_resource type="PackedScene" uid="uid://dqhqosws3qsbl" path="res://scenes/objects/player.tscn" id="1_l2mgs"]
 [ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="3_xapwp"]
 [ext_resource type="Texture2D" uid="uid://cgmnfv86si4um" path="res://assets/spritesheetReal.png" id="4_04r6d"]
+[ext_resource type="Script" uid="uid://cvc8jtjrdjsf" path="res://scripts/mapBoundaryHandler.gd" id="5_2hcd8"]
 [ext_resource type="PackedScene" uid="uid://c4c46xgtldjhv" path="res://scenes/objects/falling_pllatform.tscn" id="5_4b73c"]
 [ext_resource type="Texture2D" uid="uid://liwkfknh2kob" path="res://icon.svg" id="5_dc4tp"]
 
@@ -155,9 +156,9 @@ tile_map_data = PackedByteArray("AAAFAPz/AAAAAAIAAAD+/+//AAAAAAIAAAAEAO//AAAAAAI
 tile_set = SubResource("TileSet_dpxsi")
 
 [node name="MapBoundaries" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AADw/w4AAAACAAEAAADx/w4AAAACAAEAAADy/w4AAAACAAEAAADz/w4AAAACAAEAAAD0/w4AAAACAAEAAAD1/w4AAAACAAEAAAD2/w4AAAACAAEAAAD3/w4AAAACAAEAAAD4/w4AAAACAAEAAAD5/w4AAAACAAEAAAD6/w4AAAACAAEAAAD7/w4AAAACAAEAAAD8/w4AAAACAAEAAAD9/w4AAAACAAEAAAD+/w4AAAACAAEAAAD//w4AAAACAAEAAAAAAA4AAAACAAEAAAABAA4AAAACAAEAAAACAA4AAAACAAEAAAADAA4AAAACAAEAAAAEAA4AAAACAAEAAAAFAA4AAAACAAEAAAAGAA4AAAACAAEAAAAHAA4AAAACAAEAAAAIAA4AAAACAAEAAAAJAA4AAAACAAEAAAAKAA4AAAACAAEAAAALAA4AAAACAAEAAAAMAA4AAAACAAEAAAANAA4AAAACAAEAAAAOAA4AAAACAAEAAAAPAA4AAAACAAEAAAAQAA4AAAACAAEAAAARAA4AAAACAAEAAAASAA4AAAACAAEAAAATAA4AAAACAAEAAAAUAA4AAAACAAEAAAAVAA4AAAACAAEAAAAWAA4AAAACAAEAAAAXAA4AAAACAAEAAAAYAA4AAAACAAEAAAAZAA4AAAACAAEAAAAXABkAAAACAAEAAAAYABkAAAACAAEAAAAZABkAAAACAAEAAAAaABkAAAACAAEAAAAbABkAAAACAAEAAAAcABkAAAACAAEAAAAdABkAAAACAAEAAAAeABkAAAACAAEAAAAfABkAAAACAAEAAAAgABkAAAACAAEAAAAhABkAAAACAAEAAAAiABkAAAACAAEAAAAjABkAAAACAAEAAAAkABkAAAACAAEAAAAlABkAAAACAAEAAAAmABkAAAACAAEAAAAnABgAAAACAAEAAAAoABgAAAACAAEAAAApABgAAAACAAEAAAAqABgAAAACAAEAAAArABgAAAACAAEAAAAsABgAAAACAAEAAAAdAPn/AAACAAEAAAAeAPn/AAACAAEAAAAfAPn/AAACAAEAAAAgAPn/AAACAAEAAAAhAPn/AAACAAEAAAAiAPn/AAACAAEAAAAjAPn/AAACAAEAAAAkAPn/AAACAAEAAAAlAPn/AAACAAEAAAAmAPn/AAACAAEAAAAnAPn/AAACAAEAAAAoAPn/AAACAAEAAAApAPn/AAACAAEAAAAqAPn/AAACAAEAAAArAPn/AAACAAEAAAA=")
 tile_set = SubResource("TileSet_7jo78")
+script = ExtResource("5_2hcd8")
 
 [node name="fallingPlatforms" type="Node2D" parent="."]
 texture_filter = 1
@@ -203,3 +204,5 @@ position = Vector2(272, -80)
 
 [node name="fallingPllatform14" parent="fallingPlatforms" instance=ExtResource("5_4b73c")]
 position = Vector2(176, 304)
+
+[connection signal="ready" from="MapBoundaries" to="MapBoundaries" method="_on_levelTwo_ready"]

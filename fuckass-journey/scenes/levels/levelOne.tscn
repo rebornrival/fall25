@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://6jjystu4l4li"]
+[gd_scene load_steps=15 format=4 uid="uid://6jjystu4l4li"]
 
 [ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="1_k0q4i"]
 [ext_resource type="PackedScene" uid="uid://dqhqosws3qsbl" path="res://scenes/objects/player.tscn" id="1_v7ipo"]
 [ext_resource type="Texture2D" uid="uid://cgmnfv86si4um" path="res://assets/spritesheetReal.png" id="4_dpxsi"]
 [ext_resource type="Texture2D" uid="uid://liwkfknh2kob" path="res://icon.svg" id="4_tlt14"]
+[ext_resource type="Script" uid="uid://cvc8jtjrdjsf" path="res://scripts/mapBoundaryHandler.gd" id="5_8u72y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myhti"]
 
@@ -154,6 +155,8 @@ tile_map_data = PackedByteArray("AAAEAAgAAAAAAAIAAAARAAYAAAAAAAIAAAAKAP3/AAAAAAI
 tile_set = SubResource("TileSet_dpxsi")
 
 [node name="MapBoundaries" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AADw/wwAAAACAAEAAADx/wwAAAACAAEAAADy/wwAAAACAAEAAADz/wwAAAACAAEAAAD0/wwAAAACAAEAAAD1/wwAAAACAAEAAAD2/wwAAAACAAEAAAD3/wwAAAACAAEAAAD4/wwAAAACAAEAAAD5/wwAAAACAAEAAAD6/wwAAAACAAEAAAD7/wwAAAACAAEAAAD8/wwAAAACAAEAAAD9/wwAAAACAAEAAAD+/wwAAAACAAEAAAD//wwAAAACAAEAAAAAAAwAAAACAAEAAAABAAwAAAACAAEAAAACAAwAAAACAAEAAAADAAwAAAACAAEAAAAEAAwAAAACAAEAAAAFAAwAAAACAAEAAAAGAAwAAAACAAEAAAAHAAwAAAACAAEAAAAIAAwAAAACAAEAAAAJAAwAAAACAAEAAAAKAAwAAAACAAEAAAALAAwAAAACAAEAAAAMAAwAAAACAAEAAAANAAwAAAACAAEAAAAOAAwAAAACAAEAAAAPAAwAAAACAAEAAAAQAAwAAAACAAEAAAARAAwAAAACAAEAAAASAAwAAAACAAEAAAATAAwAAAACAAEAAAAUAAwAAAACAAEAAAAVAAwAAAACAAEAAAAWAAwAAAACAAEAAAAXAAwAAAACAAEAAAAYAAwAAAACAAEAAAAZAAwAAAACAAEAAAAaAAwAAAACAAEAAAAbAAwAAAACAAEAAAAcAAwAAAACAAEAAAAdAAwAAAACAAEAAAAeAAwAAAACAAEAAAAfAAwAAAACAAEAAAAgAAwAAAACAAEAAADv/wwAAAACAAEAAADu/wwAAAACAAEAAADt/wwAAAACAAEAAADs/wwAAAACAAEAAADr/wwAAAACAAEAAADq/wwAAAACAAEAAADp/wwAAAACAAEAAADo/wwAAAACAAEAAADn/wwAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_wmc2i")
+script = ExtResource("5_8u72y")
+
+[connection signal="ready" from="MapBoundaries" to="MapBoundaries" method="_on_levelOne_ready"]

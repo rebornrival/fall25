@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://hky6ucuwg4fc"]
+[gd_scene load_steps=17 format=4 uid="uid://hky6ucuwg4fc"]
 
 [ext_resource type="PackedScene" uid="uid://dqhqosws3qsbl" path="res://scenes/objects/player.tscn" id="1_l71va"]
 [ext_resource type="Texture2D" uid="uid://dir1cw2r58lam" path="res://assets/spritesReal.png" id="3_q7v30"]
 [ext_resource type="Texture2D" uid="uid://cgmnfv86si4um" path="res://assets/spritesheetReal.png" id="4_i4ldw"]
+[ext_resource type="Script" uid="uid://cvc8jtjrdjsf" path="res://scripts/mapBoundaryHandler.gd" id="5_no11m"]
 [ext_resource type="PackedScene" uid="uid://dp43tsl2jfiu5" path="res://scenes/objects/falling_rock.tscn" id="5_q7v30"]
 [ext_resource type="PackedScene" uid="uid://c4c46xgtldjhv" path="res://scenes/objects/falling_pllatform.tscn" id="5_yngkb"]
 [ext_resource type="Texture2D" uid="uid://liwkfknh2kob" path="res://icon.svg" id="6_w2css"]
@@ -155,9 +156,9 @@ tile_map_data = PackedByteArray("AAD4/+T/AAAEAAMAAAD4/wUAAAAAAAIAAAAYAAIAAAAAAAI
 tile_set = SubResource("TileSet_dpxsi")
 
 [node name="MapBoundaries" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AADw/w4AAAACAAEAAADx/w4AAAACAAEAAADy/w4AAAACAAEAAADz/w4AAAACAAEAAAD0/w4AAAACAAEAAAD1/w4AAAACAAEAAAD2/w4AAAACAAEAAAD3/w4AAAACAAEAAAD4/w4AAAACAAEAAAD5/w4AAAACAAEAAAD6/w4AAAACAAEAAAD7/w4AAAACAAEAAAD8/w4AAAACAAEAAAD9/w4AAAACAAEAAAD+/w4AAAACAAEAAAD//w4AAAACAAEAAAAAAA4AAAACAAEAAAABAA4AAAACAAEAAAACAA4AAAACAAEAAAADAA4AAAACAAEAAAAEAA4AAAACAAEAAAAFAA4AAAACAAEAAAAGAA4AAAACAAEAAAAHAA4AAAACAAEAAAAIAA4AAAACAAEAAAAJAA4AAAACAAEAAAAKAA4AAAACAAEAAAALAA4AAAACAAEAAAAMAA4AAAACAAEAAAANAA4AAAACAAEAAAAOAA4AAAACAAEAAAAPAA4AAAACAAEAAAAQAA4AAAACAAEAAAARAA4AAAACAAEAAAASAA4AAAACAAEAAAATAA4AAAACAAEAAAAUAA4AAAACAAEAAAAVAA4AAAACAAEAAAAWAA4AAAACAAEAAAAXAA4AAAACAAEAAAAYAA4AAAACAAEAAAAZAA4AAAACAAEAAAAXABkAAAACAAEAAAAYABkAAAACAAEAAAAZABkAAAACAAEAAAAaABkAAAACAAEAAAAbABkAAAACAAEAAAAcABkAAAACAAEAAAAdABkAAAACAAEAAAAeABkAAAACAAEAAAAfABkAAAACAAEAAAAgABkAAAACAAEAAAAhABkAAAACAAEAAAAiABkAAAACAAEAAAAjABkAAAACAAEAAAAkABkAAAACAAEAAAAlABkAAAACAAEAAAAmABkAAAACAAEAAAAnABgAAAACAAEAAAAoABgAAAACAAEAAAApABgAAAACAAEAAAAqABgAAAACAAEAAAArABgAAAACAAEAAAAsABgAAAACAAEAAAAdAPn/AAACAAEAAAAeAPn/AAACAAEAAAAfAPn/AAACAAEAAAAgAPn/AAACAAEAAAAhAPn/AAACAAEAAAAiAPn/AAACAAEAAAAjAPn/AAACAAEAAAAkAPn/AAACAAEAAAAlAPn/AAACAAEAAAAmAPn/AAACAAEAAAAnAPn/AAACAAEAAAAoAPn/AAACAAEAAAApAPn/AAACAAEAAAAqAPn/AAACAAEAAAArAPn/AAACAAEAAAA=")
 tile_set = SubResource("TileSet_sx48s")
+script = ExtResource("5_no11m")
 
 [node name="falling" type="Node2D" parent="."]
 
@@ -196,3 +197,6 @@ position = Vector2(333, -207)
 
 [node name="FallingRock5" parent="." instance=ExtResource("5_q7v30")]
 position = Vector2(-622, -143)
+
+[connection signal="ready" from="MapBoundaries" to="MapBoundaries" method="_on_levelThree_ready"]
+[connection signal="ready" from="MapBoundaries" to="MapBoundaries" method="_on_ready"]
