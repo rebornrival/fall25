@@ -151,14 +151,14 @@ size = Vector2(34, 80)
 script = ExtResource("1_sx48s")
 
 [node name="player" parent="." instance=ExtResource("1_l71va")]
-position = Vector2(146, 265)
+position = Vector2(149, 261)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAACAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAABAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAD//wkAAAAAAAAAAAD+/wkAAAAAAAAAAAAJAAkAAAAAAAAAAAD7/wYAAAAAAAAAAAD6/wYAAAAAAAAAAAD5/wYAAAAAAAAAAAD4/wYAAAAAAAAAAAD1/wYAAAAAAAAAAADy/wMAAAAAAAAAAADx/wMAAAAAAAAAAADw/wMAAAAAAAAAAADv/wMAAAAAAAAAAADs/wAAAAAAAAAAAADr/wAAAAAAAAAAAADq/wAAAAAAAAAAAADp/wAAAAAAAAAAAADo/wAAAAAAAAAAAADn/wAAAAAAAAAAAADw//3/AAAAAAAAAADx//3/AAAAAAAAAADy//3/AAAAAAAAAADz//3/AAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAASAAYAAAAAAAAAAAAWAAMAAAAAAAAAAAAXAAMAAAAAAAAAAAAYAAMAAAAAAAAAAAASAAEAAAAAAAAAAAAMAP7/AAABAAAAAAALAP7/AAABAAAAAAAKAP7/AAABAAAAAAAJAP7/AAABAAAAAAAIAP7/AAABAAAAAAD3//v/AAACAAMAAAD7//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAAEAPv/AAACAAAAAAADAPv/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAACAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAABAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAD//wkAAAAAAAAAAAD+/wkAAAAAAAAAAAAJAAkAAAAAAAAAAAD7/wYAAAAAAAAAAAD6/wYAAAAAAAAAAAD5/wYAAAAAAAAAAAD4/wYAAAAAAAAAAAD1/wYAAAAAAAAAAADy/wMAAAAAAAAAAADx/wMAAAAAAAAAAADw/wMAAAAAAAAAAADv/wMAAAAAAAAAAADs/wAAAAAAAAAAAADr/wAAAAAAAAAAAADq/wAAAAAAAAAAAADp/wAAAAAAAAAAAADo/wAAAAAAAAAAAADn/wAAAAAAAAAAAADw//3/AAAAAAAAAADx//3/AAAAAAAAAADy//3/AAAAAAAAAADz//3/AAAAAAAAAAD3//v/AAACAAMAAAD7//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAAEAPv/AAACAAAAAAADAPv/AAACAAAAAAAIAPn/AAAAAAAAAAAHAPn/AAAAAAAAAAALAPn/AAAAAAAAAAAMAPn/AAAAAAAAAAAPAPj/AAAAAAAAAAAMAPX/AAAAAAAAAAALAPX/AAAAAAAAAAAQAPj/AAAAAAAAAAAPAPL/AAAAAAAAAAAQAPL/AAAAAAAAAAARAPL/AAAAAAAAAAASAPL/AAAAAAAAAAATAPL/AAAAAAAAAAD+//3/AAAAAAAAAAALAO//AAAAAAAAAAAMAO//AAAAAAAAAAAPAOz/AAAAAAAAAAAQAOz/AAAAAAAAAAAMAOn/AAAAAAAAAAALAOn/AAAAAAAAAAAPAOb/AAAAAAAAAAAQAOb/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_v7ipo")
 
 [node name="Damage" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD4/+T/AAAEAAMAAAD4/wUAAAAAAAIAAAAYAAIAAAAAAAIAAAD3//r/AAAAAAIAAAD2//v/AAAAAAIAAGD3//z/AAAAAAIAADD4//v/AAAAAAIAAFA=")
+tile_map_data = PackedByteArray("AAD4/+T/AAAEAAMAAAD4/wUAAAAAAAIAAAD3//r/AAAAAAIAAAD2//v/AAAAAAIAAGD3//z/AAAAAAIAADD4//v/AAAAAAIAAFA=")
 tile_set = SubResource("TileSet_dpxsi")
 
 [node name="MapBoundaries" type="TileMapLayer" parent="."]
@@ -172,10 +172,10 @@ script = ExtResource("5_no11m")
 position = Vector2(-272, 208)
 
 [node name="fallingPllatform3" parent="falling" instance=ExtResource("5_yngkb")]
-position = Vector2(529, 48)
+position = Vector2(304, -208)
 
 [node name="fallingPllatform4" parent="falling" instance=ExtResource("5_yngkb")]
-position = Vector2(561, 48)
+position = Vector2(336, -208)
 
 [node name="fallingPllatform2" parent="falling" instance=ExtResource("5_yngkb")]
 position = Vector2(-304, 208)
@@ -186,26 +186,29 @@ position = Vector2(-112, -80)
 [node name="fallingPllatform6" parent="falling" instance=ExtResource("5_yngkb")]
 position = Vector2(-80, -80)
 
-[node name="fallingPllatform7" parent="falling" instance=ExtResource("5_yngkb")]
-position = Vector2(-48, -80)
-
 [node name="FallingRock2" parent="." instance=ExtResource("5_q7v30")]
 position = Vector2(80, 110)
 
 [node name="FallingRock" parent="." instance=ExtResource("5_q7v30")]
-position = Vector2(208, 110)
+position = Vector2(-13, 115)
 
 [node name="FallingRock3" parent="." instance=ExtResource("5_q7v30")]
-position = Vector2(-81, -209)
+position = Vector2(-93, -269)
 
 [node name="FallingRock4" parent="." instance=ExtResource("5_q7v30")]
-position = Vector2(333, -207)
+position = Vector2(318, -402)
 
 [node name="FallingRock5" parent="." instance=ExtResource("5_q7v30")]
-position = Vector2(-622, -143)
+position = Vector2(-654, -143)
+
+[node name="FallingRock6" parent="." instance=ExtResource("5_q7v30")]
+position = Vector2(446, -597)
+
+[node name="FallingRock7" parent="." instance=ExtResource("5_q7v30")]
+position = Vector2(449, -832)
 
 [node name="endFlag3" type="Area2D" parent="."]
-position = Vector2(27, -204)
+position = Vector2(416, -868)
 script = ExtResource("9_sx48s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="endFlag3"]
