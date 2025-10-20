@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -440.0
 
 var can_jump = true
 
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite = $RomanManSprite
 
 func _ready():
 	animated_sprite.play("walk_right")
