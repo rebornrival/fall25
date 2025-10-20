@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://hky6ucuwg4fc"]
+[gd_scene load_steps=20 format=4 uid="uid://hky6ucuwg4fc"]
 
 [ext_resource type="PackedScene" uid="uid://dqhqosws3qsbl" path="res://scenes/objects/player.tscn" id="1_l71va"]
 [ext_resource type="Script" uid="uid://cs4sb580xsayb" path="res://scenes/levels/level_three.gd" id="1_sx48s"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dp43tsl2jfiu5" path="res://scenes/objects/falling_rock.tscn" id="5_q7v30"]
 [ext_resource type="PackedScene" uid="uid://c4c46xgtldjhv" path="res://scenes/objects/falling_pllatform.tscn" id="5_yngkb"]
 [ext_resource type="Texture2D" uid="uid://liwkfknh2kob" path="res://icon.svg" id="6_w2css"]
-[ext_resource type="AudioStream" uid="uid://cjyl2t30a120n" path="res://music/roman_music.wav" id="8_yn6c0"]
+[ext_resource type="Script" uid="uid://ddxn78j0evwso" path="res://scenes/levels/end_flag_3.gd" id="9_sx48s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myhti"]
 
@@ -144,6 +144,9 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_no11m")
 sources/0 = SubResource("TileSetAtlasSource_yn6c0")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv2hh"]
+size = Vector2(34, 80)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_sx48s")
 
@@ -201,10 +204,14 @@ position = Vector2(333, -207)
 [node name="FallingRock5" parent="." instance=ExtResource("5_q7v30")]
 position = Vector2(-622, -143)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_yn6c0")
-volume_db = -10.0
-autoplay = true
+[node name="endFlag3" type="Area2D" parent="."]
+position = Vector2(27, -204)
+script = ExtResource("9_sx48s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endFlag3"]
+position = Vector2(100, 0)
+shape = SubResource("RectangleShape2D_xv2hh")
 
 [connection signal="ready" from="MapBoundaries" to="MapBoundaries" method="_on_ready"]
 [connection signal="ready" from="MapBoundaries" to="MapBoundaries" method="_on_levelThree_ready"]
+[connection signal="body_entered" from="endFlag3" to="endFlag3" method="_on_end_flag_3_body_entered"]

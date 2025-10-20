@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cla61dgl7xwbm"]
+[gd_scene load_steps=9 format=3 uid="uid://cla61dgl7xwbm"]
 
 [ext_resource type="Script" uid="uid://jhp6pkiul07b" path="res://scenes/cutscenes/credits.gd" id="1_ckkgk"]
 [ext_resource type="FontFile" uid="uid://c5e1uwtbpdkhp" path="res://fonts/MedievalSharp-Regular.ttf" id="2_gxk13"]
 [ext_resource type="Texture2D" uid="uid://dh00xgjqphq16" path="res://assets/fuckassJourneyGameOverBackground.png" id="2_sqtc1"]
-[ext_resource type="AudioStream" uid="uid://cjyl2t30a120n" path="res://music/roman_music.wav" id="4_sqtc1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igb27"]
 texture = ExtResource("2_sqtc1")
@@ -122,10 +121,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_sqtc1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_igb27")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lv56j")
 text = "Back to Main Menu"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_sqtc1")
-volume_db = -10.0
-autoplay = true
 
 [connection signal="pressed" from="MarginContainer/BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
