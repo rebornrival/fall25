@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -440.0
 var can_jump = true
 
 @onready var animated_sprite = $RomanManSprite
+@onready var audio_player = $AudioStreamPlayer
 
 func _ready():
 	animated_sprite.play("walk_right")
@@ -44,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func jump():
+	audio_player.play()
 	velocity.y = JUMP_VELOCITY
 	can_jump = false
 
