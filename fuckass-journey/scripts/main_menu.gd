@@ -3,6 +3,8 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await SceneTransitionAnimation.fade_out()
+	MusicPlayer.play("res://music/roman_music.wav")
+	
 	
 # Handles starting the game and loading the first level
 func _on_start_game_pressed() -> void:

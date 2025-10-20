@@ -4,6 +4,8 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await SceneTransitionAnimation.fade_out()
+	MusicPlayer.stop()
+	MusicPlayer.play("res://music/roman_music.wav")
 	
 func _on_back_to_main_menu_pressed() -> void:
 	await SceneTransitionAnimation.fade_in()

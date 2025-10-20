@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneTransitionAnimation="*res://scenes/sceneTransitionAnimation.tscn"
+MusicPlayer="*res://scenes/musicPlayer.tscn"
 
 [display]
 
