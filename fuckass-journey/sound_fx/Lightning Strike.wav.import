@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxwowf8xo0p83"
+path="res://.godot/imported/Lightning Strike.wav-6a2b5a6960f9bc5e917b6db1590f7df6.sample"
+
+[deps]
+
+source_file="res://sound_fx/Lightning Strike.wav"
+dest_files=["res://.godot/imported/Lightning Strike.wav-6a2b5a6960f9bc5e917b6db1590f7df6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

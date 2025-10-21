@@ -3,13 +3,13 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await SceneTransitionAnimation.fade_out()
-	MusicPlayer.play("res://music/roman_music.wav")
+	MusicPlayer.play("res://music/start_scene.wav")
 	
 	
 # Handles starting the game and loading the first level
 func _on_start_game_pressed() -> void:
 	await SceneTransitionAnimation.fade_in()
-	get_tree().change_scene_to_file("res://scenes/levels/levelOne.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro_sequence/intro_sequence_1.tscn")
 
 # Quits out of application
 func _on_quit_pressed() -> void:
