@@ -148,7 +148,7 @@ size = Vector2(20, 41)
 script = ExtResource("1_882ld")
 
 [node name="player" parent="." instance=ExtResource("1_v7ipo")]
-position = Vector2(-27, 259)
+position = Vector2(-8, 209)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1

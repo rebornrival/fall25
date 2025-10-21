@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://drda816u034g7"]
+
+[ext_resource type="Texture2D" uid="uid://b6fropa1cjwp5" path="res://assets/bridge.png" id="1_g1xpv"]
+[ext_resource type="Script" uid="uid://4p4loy31axpj" path="res://scenes/intro_sequence/intro_sequence_1.gd" id="1_vgg5a"]
+[ext_resource type="FontFile" uid="uid://c5e1uwtbpdkhp" path="res://fonts/MedievalSharp-Regular.ttf" id="2_02atg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_02atg"]
+texture = ExtResource("1_g1xpv")
+modulate_color = Color(0.57700837, 0.5770084, 0.57700825, 1)
+
+[node name="IntroSequence1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vgg5a")
+metadata/_edit_vertical_guides_ = [-19948.0]
+metadata/_edit_horizontal_guides_ = [-8472.0]
+
+[node name="Background" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_02atg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 120
+
+[node name="StoryTextTop" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_02atg")
+theme_override_font_sizes/font_size = 40
+text = "It was just another Tuesday. You were walking home from the Kroger market 
+and had gotten halfway across the Grander Canyon when you heard a voice."
+horizontal_alignment = 1
+
+[node name="StoryTextBottom" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 0.9551093, 0.6277164, 1)
+theme_override_fonts/font = ExtResource("2_02atg")
+theme_override_font_sizes/font_size = 40
+text = "\"MORTAL! THOU HAST CHOSEN THY GRAINS POORLY. ONLY A WEAK-MINDED FOOL
+ WOULD WILLINGLY PURCHASE RAINSIN-BRAN OATS\""
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
